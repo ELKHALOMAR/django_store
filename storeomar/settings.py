@@ -25,6 +25,9 @@ SECRET_KEY = '0$*tao9*4%rj$zb-ug%k)gwuuo6kxmf#uc(ib@7(m#ry7iuz)4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+TEMPLATE_DEBUG = True
+
+
 ALLOWED_HOSTS = []
 
 
@@ -66,6 +69,7 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
+                'django.template.context_processors.media',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
@@ -82,8 +86,12 @@ WSGI_APPLICATION = 'storeomar.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME':'qprxnlwy',
+        'USER': 'qprxnlwy',
+        'PASSWORD': '4ZSWQkwDtsio5-OBdGRVhxqh7-VcejqL',
+        'HOST': 'packy.db.elephantsql.com',
+        'PORT': '5432',
     }
 }
 
@@ -125,3 +133,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
